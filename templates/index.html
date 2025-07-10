@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo chat-bot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='chatbot.png') }}" type="image/x-icon">
+</head>
+<body>
+  <div class="chat-container">
+      <div class="chat-header">
+          Asst.
+      </div>
+      
+      <div class="chat-messages" id="chat">
+          <div class="empty-state">
+              <svg class="empty-state-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/>
+              </svg>
+              <h3></h3>
+              <p></p>
+          </div>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="typing-indicator" id="typing-indicator">
+          <div class="typing-dots">
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+          </div>
+      </div>
+
+      <!-- Input Box -->
+      <div class="chat-input-container">
+          <div class="input-wrapper">
+              <textarea id="user-input" placeholder="Type your message..." rows="1"></textarea>
+          </div>
+          <button class="send-button" onclick="sendMessage()" id="send-button">
+              <svg class="send-icon" viewBox="0 0 24 24">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+              </svg>
+          </button>
+      </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='chat.js') }}" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>
